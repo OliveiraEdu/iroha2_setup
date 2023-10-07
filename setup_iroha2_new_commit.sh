@@ -10,6 +10,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly-2023-06-25
 rustup override set nightly-2023-06-25
 rustup component add rust-src --toolchain nightly-2023-06-25
 cd ~/Git/iroha
+git checkout 37ba88c2d920b112bfb2ac0d7eb283086c53a8c4
 cargo build -p iroha_client_cli --release
 mkdir -p test_docker
 cp ./configs/client/config.json test_docker/
