@@ -3,7 +3,7 @@ eduardo@blockchain:~/Git/iroha$ git show
 commit da74b8c29f26670db5639503c5c141363aa05820 (HEAD -> iroha2-dev, origin/iroha2-dev)
 ` ` ` 
 
-` ` ` 
+
 eduardo@blockchain:~/Git/iroha$ docker compose -f docker-compose.dev.yml up
 
 iroha-iroha1-1  | 2023-10-08T19:53:03.641739Z  INFO request{method=POST path=/query version=HTTP/1.1 remote.addr=192.168.208.1:45628}: warp::filters::trace: processing request
@@ -35,7 +35,20 @@ eduardo@blockchain:~/Git/iroha$ git branch
   iroha2-stable
 
 eduardo@blockchain:~/Git/iroha$ nano docker-compose.dev.single.yml 
+` ` ` 
+#0 573.6   running: "musl-g++" "-O3" "-ffunction-sections" "-fdata-sections" "-fPIC" "-m64" "-Wall" "-Wextra" "-o" "/iroha/target/x86_64-unknown-linux-musl/deploy/build/link-cplusplus-37414c682fb6de70/out/19ea84752e352604-dummy.o" "-c" "/iroha/target/x86_64-unknown-linux-musl/deploy/build/link-cplusplus-37414c682fb6de70/out/dummy.cc"
+#0 573.6 
+#0 573.6   --- stderr
+#0 573.6 
+#0 573.6 
+#0 573.6   error occurred: Failed to find tool. Is `musl-g++` installed?
+#0 573.6 
+#0 573.6 
+#0 573.6 warning: build failed, waiting for other jobs to finish...
+------
+failed to solve: executor failed running [/bin/sh -c cargo build  --target x86_64-unknown-linux-musl --features vendored --profile deploy]: exit code: 101
 
+` ` ` 
 
 
 
