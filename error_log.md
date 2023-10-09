@@ -19,5 +19,20 @@ Error:
 Location:
    client_cli/src/main.rs:426
 
+
+
 Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.
 Run with RUST_BACKTRACE=full to include source snippets
+
+#-------
+
+eduardo@blockchain:~/Git/iroha$ git branch
+* iroha2-dev
+  iroha2-lts
+  iroha2-stable
+
+eduardo@blockchain:~/Git/iroha$ nano docker-compose.dev.single.yml 
+
+
+
+
