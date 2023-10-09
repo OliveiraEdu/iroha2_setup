@@ -47,3 +47,37 @@ eduardo@blockchain:~/Git/iroha$ nano docker-compose.dev.single.yml
 failed to solve: executor failed running [/bin/sh -c cargo build  --target x86_64-unknown-linux-musl --features vendored --profile deploy]: exit code: 101
 
 
+
+
+LTS
+root@60a4ef221ae2:~/Git/iroha/test_docker# git branch
+  iroha2-dev
+* iroha2-lts
+  iroha2-stable
+root@60a4ef221ae2:~/Git/iroha/test_docker# 
+
+ Compiling clap_lex v0.2.4
+   Compiling console v0.15.1
+   Compiling tungstenite v0.16.0
+error: failed to run custom build command for `iroha_client v2.0.0-pre-rc.9 (/root/Git/iroha/client)`
+
+Caused by:
+  process didn't exit successfully: `/root/Git/iroha/target/release/build/iroha_client-8772db2a4d73b4d8/build-script-build` (exit status: 1)
+  --- stdout
+  cargo:rerun-if-changed=tests/integration/smartcontracts
+
+  --- stderr
+  error: toolchain 'nightly-2022-08-15-x86_64-unknown-linux-gnu' is not installed
+  Error: Failed to build smartcontracts in directory: tests/integration/smartcontracts
+
+  Caused by:
+     0: Failed to build the smartcontract
+     1: `cargo build` returned non zero exit code (exit status: 1) then trying to build smartcontract at path `/root/Git/iroha/client/tests/integration/smartcontracts/mint_rose`
+
+  Location:
+      client/build.rs:135:20
+warning: build failed, waiting for other jobs to finish...
+warning: `iroha_data_model` (lib) generated 1 warning
+
+
+
