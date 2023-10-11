@@ -37,3 +37,15 @@ Changes not staged for commit:
 	modified:   docker-compose.yml
 
 no changes added to commit (use "git add" and/or "git commit -a")
+
+
+# ----
+
+eduardo@blockchain:~$ docker attach f8a67a6dfb6a
+2023-10-11T20:59:33.871425Z  INFO request{method=POST path=/query version=HTTP/1.1 remote.addr=192.168.208.1:44682}: warp::filters::trace: processing request
+2023-10-11T20:59:33.871910Z  INFO request{method=POST path=/query version=HTTP/1.1 remote.addr=192.168.208.1:44682}: warp::filters::trace: finished processing with success status=200
+2023-10-11T21:30:56.423676Z  INFO request{method=POST path=/query version=HTTP/1.1 remote.addr=192.168.208.1:50542}: warp::filters::trace: processing request
+2023-10-11T21:30:56.424186Z  INFO request{method=POST path=/query version=HTTP/1.1 remote.addr=192.168.208.1:50542}: warp::filters::trace: finished processing with success status=200
+
+
+
