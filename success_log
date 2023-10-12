@@ -1,6 +1,10 @@
-#Date 11/Oct/2023
+#---Date 11/Oct/2023
 
-#Iroha Cli
+#---Iroha Cli
+
+root@e491fa163b3c:~/Git/iroha/test_docker# ./iroha_client_cli --config ./test_docker/config.json
+iroha_client_cli 2.0.0-pre-rc.9 (9273a912c8a97f9ce1bfaa302c7192554f7abf00)
+
 
 root@e491fa163b3c:~/Git/iroha/test_docker# git branch
 * iroha2-lts
