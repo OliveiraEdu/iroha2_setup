@@ -1,7 +1,6 @@
 apt update
 apt-get install -y libssl-dev curl build-essential pkg-config iputils-ping nano git pip patchelf nano
-mkdir -p ~/Git
-cd ~/Git
+
 git clone https://github.com/hyperledger/iroha.git --branch iroha2-lts
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
