@@ -2,15 +2,15 @@
   "PUBLIC_KEY": "ed01204595da8957c5598d4de20fe5f3eb4c14820678e1a1957a535db1fd4b3d1607c5",
   "PRIVATE_KEY": {
     "digest_function": "ed25519",
-    "payload": ""14d382c5bd8c0bfbaefdef1133196b78839ed3c136e296e0d969b7a3fca2fb424595da8957c5598d4de20fe5f3eb4c14820678e1a1957a535db1fd4b3d1607c5
+    "payload": "14d382c5bd8c0bfbaefdef1133196b78839ed3c136e296e0d969b7a3fca2fb424595da8957c5598d4de20fe5f3eb4c14820678e1a1957a535db1fd4b3d1607c5"
   },
   "ACCOUNT_ID": "mad_hatter@looking_glass",
   "BASIC_AUTH": {
     "web_login": "mad_hatter",
     "password": "ilovetea"
   },
-  "TORII_API_URL": "http://127.0.0.1:8080",
-  "TORII_TELEMETRY_URL": "http://127.0.0.1:8180",
+  "TORII_API_URL": "http://200.17.87.161:8080",
+  "TORII_TELEMETRY_URL": "http://200.17.87.161:8180",
   "TRANSACTION_TIME_TO_LIVE_MS": 100000,
   "TRANSACTION_STATUS_TIMEOUT_MS": 15000,
   "TRANSACTION_LIMITS": {
