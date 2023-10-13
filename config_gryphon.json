@@ -1,8 +1,8 @@
 {
-  "PUBLIC_KEY": "ed01207233bfc89dcbd68c19fde6ce6158225298ec1131b6a130d1aeb454c1ab5183c0",
+  "PUBLIC_KEY": "ed0120aa732e5a5dfdebe1c417dc1dfbf172857f6797af35acd1efd625b8688523bd04",
   "PRIVATE_KEY": {
     "digest_function": "ed25519",
-    "payload": "9ac47abf59b356e0bd7dcbbbb4dec080e302156a48ca907e47cb6aea1d32719e7233bfc89dcbd68c19fde6ce6158225298ec1131b6a130d1aeb454c1ab5183c0"
+    "payload": "cd20649f90fca5a5cd282f078b43ce4415a2339b01221a61ce8fba639b683583aa732e5a5dfdebe1c417dc1dfbf172857f6797af35acd1efd625b8688523bd04"
   },
   "ACCOUNT_ID": "alice@wonderland",
   "BASIC_AUTH": {
@@ -19,5 +19,3 @@
   },
   "ADD_TRANSACTION_NONCE": false
 }
-
-
