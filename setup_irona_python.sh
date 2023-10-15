@@ -12,16 +12,16 @@ rustup override set nightly-2023-06-25
 rustup component add rust-src --toolchain nightly-2023-06-25
 
 # --- Installing the Bash Client
-cd ~/Git/iroha
-cargo build -p iroha_client_cli --release
-mkdir -p test_docker
-cp ./configs/client/config.json test_docker/
-cp ./target/release/iroha_client_cli test_docker/
-cd ~/Git/iroha/test_docker
+#cd ~/Git/iroha
+#cargo build -p iroha_client_cli --release
+#mkdir -p test_docker
+#cp ./configs/client/config.json test_docker/
+#cp ./target/release/iroha_client_cli test_docker/
+#cd ~/Git/iroha/test_docker
 
 # --- Installing the Python Client
-#git clone https://github.com/hyperledger/iroha-python/ --branch iroha2-edge
-#cd iroha-python
-#pip install maturin
-#maturin build
+git clone https://github.com/hyperledger/iroha-python/ --branch iroha2-edge
+cd iroha-python
+pip install maturin
+maturin build
 
