@@ -1,6 +1,6 @@
 apt update
 apt-get install -y libssl-dev curl build-essential pkg-config iputils-ping nano git pip patchelf nano
-
+cd ~/Git
 git clone https://github.com/hyperledger/iroha.git --branch iroha2-lts
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
@@ -18,4 +18,3 @@ mkdir -p test_docker
 cp ./configs/client/config.json test_docker/
 cp ./target/release/iroha_client_cli test_docker/
 cd ~/Git/iroha/test_docker
-
