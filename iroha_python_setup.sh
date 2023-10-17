@@ -1,3 +1,4 @@
+#succesfull setup for Iroha Python 17OCT2023
 apt update
 apt-get install -y libssl-dev curl build-essential pkg-config iputils-ping nano git pip patchelf nano maturin jupyter
 mkdir -p ~/Git
