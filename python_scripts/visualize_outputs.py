@@ -13,24 +13,22 @@ from iroha2.crypto import KeyPair
 from iroha2.data_model.query.asset import FindAssetById
 from iroha2.data_model.query import Query
 
-cfg = json.loads(open("config.json").read())
 
-print(cfg)
+def wait_for_tx(cl: Client, hash: str):
+    filter = FilterBox(
+        pipeline.EventFilter(
+            entity_kind=pipeline.EntityKind.Transaction(),
+            status_kind=None,
+            hash=None,
+        ))
 
-cl = Client(cfg)
+    listener = cl.listen(filter)
 
-
-filter = EventFilter.Pipeline(
-    pipeline.EventFilter(
-        entity=pipeline.EntityType.Transaction(),
-        hash=None,
-    ))
-    
-listener = cl.listen(filter)
-
-for event in listener:
-    print(event)
-
-    if event["Pipeline"]["status"] == "Committed" \
-        and event["Pipeline"]["hash"] == hash:
-        break
+    for event in listener:
+        if isinstance(event, Event.Pipeline) and event.hash == hash:
+            if isinstance(event.status, pipeline.Status.Committed):
+                return
+            elif isinstance(event.status, pipeline.Status.Validating):
+                pass
+            else:
+                raise RuntimeError(f"Tx rejected: {event.status}")
