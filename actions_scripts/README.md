@@ -1,1 +1,1 @@
-The files here execute actions (queries or transactions in iroha cliet).
+The files here execute actions (queries or transactions in iroha client).
