@@ -42,12 +42,20 @@ register = Register.identifiable(domain)
 hash = cl.submit_isi(register)
 wait_for_tx(cl, hash)
 
-asset_definition = asset.Definition(
-    "jar_of_marmelade#rabbit_hole",
-    asset.ValueType.Quantity(),
-    asset.Mintable.Infinitely(),
+#asset_definition = asset.Definition(
+#    "jar_of_marmelade#rabbit_hole",
+#    asset.ValueType.Quantity(),
+#    asset.Mintable.Infinitely(),
+#)
+
+jar_of_marmelade = asset.Definition(
+    value_type=asset.ValueType.Quantity,
+    id=asset.DefinitionId(name="jar_of_marmelade", domain_name="rabbit_hole"),
+    metadata={"a": Value.U32(10)},
+    mintable=False
 )
-register = Register.identifiable(asset_definition)
+
+register = Register.identifiable(jar_of_marmelade)
 hash = cl.submit_isi(register)
 wait_for_tx(cl, hash)
 
