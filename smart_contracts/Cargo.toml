@@ -17,7 +17,11 @@
   codegen-units = 1   # Further reduces binary size but increases compilation time
 
   [dependencies]
-  iroha_data_model = { git = "https://github.com/hyperledger/iroha.git", branch = "iroha2-dev", rev = "80183323710952a38766dcd6e04a731420df9a42" }
-  iroha_smart_contract = { git = "https://github.com/hyperledger/iroha.git", branch = "iroha2-dev", rev = "80183323710952a38766dcd6e04a731420df9a42" }
+  #iroha_data_model = { git = "https://github.com/hyperledger/iroha.git", branch = "iroha2-dev", rev = "80183323710952a38766dcd6e04a731420df9a42" }
+  iroha_data_model = { path = "Cargo.lock" }
+  #iroha_smart_contract = { git = "https://github.com/hyperledger/iroha.git", branch = "iroha2-dev", rev = "80183323710952a38766dcd6e04a731420df9a42" }
+  iroha_smart_contract = { path = "Cargo.lock" }
+
+
 
   panic-halt = "0.2.0"
