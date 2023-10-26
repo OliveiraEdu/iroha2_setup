@@ -1,0 +1,6 @@
+[package]
+name = "iroha_data_model"
+version = "0.1.0"
+source = "git+https://github.com/hyperledger/iroha.git"
+revision = "80183323710952a38766dcd6e04a731420df9a42"
+
