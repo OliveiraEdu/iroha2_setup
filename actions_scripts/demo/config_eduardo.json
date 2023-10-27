@@ -1,0 +1,21 @@
+{
+  "PUBLIC_KEY": "ed0120aee72ea42dcb3873fd3782835a8aced6ff915167360cf60745d533eaa409b4f8",
+  "PRIVATE_KEY": {
+    "digest_function": "ed25519",
+    "payload": "2cf75e8106f8412c493400e7bbeedc7387af58830c4c0c4884994cdb554cc94aaee72ea42dcb3873fd3782835a8aced6ff915167360cf60745d533eaa409b4f8"
+  },
+  "ACCOUNT_ID": "eduardo@unijui",
+  "BASIC_AUTH": {
+    "web_login": "mad_hatter",
+    "password": "ilovetea"
+  },
+  "TORII_API_URL": "http://200.17.87.161:8080",
+  "TORII_TELEMETRY_URL": "http://200.17.87.161:8180",
+  "TRANSACTION_TIME_TO_LIVE_MS": 100000,
+  "TRANSACTION_STATUS_TIMEOUT_MS": 15000,
+  "TRANSACTION_LIMITS": {
+    "max_instruction_number": 4096,
+    "max_wasm_size_bytes": 4194304
+  },
+  "ADD_TRANSACTION_NONCE": false
+}
