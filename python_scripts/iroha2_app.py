@@ -1,8 +1,5 @@
-import sys
 import json
-
 from iroha2 import Client
-
 from iroha2.data_model.isi import Register, Mint
 from iroha2.data_model.domain import Domain
 from iroha2.data_model.account import Account
@@ -11,69 +8,89 @@ from iroha2.data_model.expression import Expression
 from iroha2.data_model.events import FilterBox, pipeline, Event
 from iroha2.crypto import KeyPair
 from iroha2.data_model.query.asset import FindAssetById
-from iroha2.data_model.query import Query
 
-def register_domain(cl: Client, domain: Domain) -> str:
+def wait_for_tx(cl: Client, hash: str):
+    filter = FilterBox(
+        pipeline.EventFilter(
+            entity_kind=pipeline.EntityKind.Transaction(),
+            status_kind=None,
+            hash=None,
+        ))
+
+    listener = cl.listen(filter)
+
+    for event in listener:
+        if isinstance(event, Event.Pipeline) and event.hash == hash:
+            if isinstance(event.status, pipeline.Status.Committed):
+                return
+            elif isinstance(event.status, pipeline.Status.Validating):
+                pass
+            else:
+                raise RuntimeError(f"Tx rejected: {event.status}")
+
+def register_domain(cl: Client):
+    domain_name = input("Enter domain name: ")
+    domain = Domain(domain_name)
     register = Register.identifiable(domain)
     hash = cl.submit_isi(register)
     wait_for_tx(cl, hash)
-    return hash
 
-def register_asset_definition(cl: Client, asset_definition: asset.Definition) -> str:
+def register_asset(cl: Client):
+    asset_name = input("Enter asset name: ")
+    value_type = asset.ValueType.Quantity()
+    mintable = asset.Mintable.Infinitely()
+    asset_definition = asset.Definition(asset_name, value_type, mintable)
     register = Register.identifiable(asset_definition)
     hash = cl.submit_isi(register)
     wait_for_tx(cl, hash)
-    return hash
 
-def register_account(cl: Client, account: Account) -> str:
-    register = Register.identifiable(account)
+def register_account(cl: Client):
+    account_name = input("Enter account name: ")
+    keypair = KeyPair()
+    acct = account.Account(account_name, signatories=[keypair.public])
+    register = Register.identifiable(acct)
     hash = cl.submit_isi(register)
     wait_for_tx(cl, hash)
-    return hash
 
-def mint_asset(cl: Client, condition: Expression, account_id: Expression) -> str:
+def mint_asset(cl: Client):
+    account_id = input("Enter account ID: ")
+    condition = account.SignatureCheckCondition(Expression.Equal(expression.Equal(Value.U32(1), Value.U32(1)))
+    account_id = Expression(Value(Id(account_id))
     mint = Mint(condition, account_id)
     hash = cl.submit_isi(mint)
     wait_for_tx(cl, hash)
-    return hash
 
-def query_asset_info(cl: Client, asset_id: asset.Id) -> Query.Result:
-    query = FindAssetById.id(asset_id)
-    return cl.query(query)
+def query_asset(cl: Client):
+    asset_id = input("Enter asset ID: ")
+    query = FindAssetById.id(asset.Id(asset_id))
+    result = cl.query(query)
+    print(result)
 
-def interactive_menu():
-    # Read the configuration from the config.json file
-    with open("./config.json", "r") as f:
-        cfg = json.load(f)
-
-    # Create an Iroha2 client
+if __name__ == "__main__":
+    cfg = json.loads(open("./config.json").read())
     cl = Client(cfg)
 
-    print("Welcome to the Iroha interactive menu!")
+    while True:
+        print("1. Register Domain")
+        print("2. Register Asset")
+        print("3. Register Account")
+        print("4. Mint Asset")
+        print("5. Query Asset")
+        print("6. Quit")
 
-    # Get the user input
-    domain = input("Enter the domain name: ")
-    asset_definition = input("Enter the asset definition: ")
-    account_name = input("Enter the account name: ")
-    asset_id = input("Enter the asset ID: ")
+        choice = input("Select an option: ")
 
-    # Register the domain
-    domain_hash = register_domain(cl, domain)
-
-    # Register the asset definition
-    asset_definition_hash = register_asset_definition(cl, asset_definition)
-
-    # Register the account
-    account = Account(account_name)
-    account_hash = register_account(cl, account)
-
-    # Mint the asset
-    condition = account.SignatureCheckCondition(Expression.Equal(expression.Equal(Value.U32(1), Value.U32(1))))
-    account_id = Expression(Value(Id(account.Id(account_name))))
-    mint_hash = mint_asset(cl, condition, account_id)
-
-    # Query for the asset information
-    asset_info = query_asset_info(cl, asset.Id(asset_id))
-
-    # Print the asset information
-    print(asset_info)
+        if choice == "1":
+            register_domain(cl)
+        elif choice == "2":
+            register_asset(cl)
+        elif choice == "3":
+            register_account(cl)
+        elif choice == "4":
+            mint_asset(cl)
+        elif choice == "5":
+            query_asset(cl)
+        elif choice == "6":
+            break
+        else:
+            print("Invalid choice. Please try again.")
