@@ -8,6 +8,7 @@ from iroha2.data_model.expression import Expression
 from iroha2.data_model.events import FilterBox, pipeline, Event
 from iroha2.crypto import KeyPair
 from iroha2.data_model.query.asset import FindAssetById
+from iroha2.data_model.query import Query
 
 def wait_for_tx(cl: Client, hash: str):
     filter = FilterBox(
@@ -54,10 +55,13 @@ def register_account(cl: Client):
 
 def mint_asset(cl: Client):
     account_id = input("Enter account ID: ")
-    condition = account.SignatureCheckCondition(Expression.Equal(expression.Equal(Value.U32(1), Value.U32(1)))
-    account_id = Expression(Value(Id(account_id))
-    mint = Mint(condition, account_id)
-    hash = cl.submit_isi(mint)
+    asset_id = input("Enter asset ID to mint: ")
+    
+    amount = Expression(Value(U32(42)))
+    destination = Expression(Value(Identifiable(asset.DefinitionId.parse(asset_id)))
+    mint_amount = Mint(amount, destination)
+    
+    hash = cl.submit_isi(mint_amount)
     wait_for_tx(cl, hash)
 
 def query_asset(cl: Client):
