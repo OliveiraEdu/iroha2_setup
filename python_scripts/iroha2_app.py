@@ -1,3 +1,4 @@
+from icecream import ic
 import json
 from iroha2 import Client
 from iroha2.data_model.isi import Register, Mint
@@ -60,8 +61,9 @@ def mint_asset(cl: Client):
     quantity = int(input("Enter the quantity to mint: "))  # Added input for quantity
 
     asset_id = f"{asset_name}#{domain_name}"
+    ic(asset_id)
     account_id = f"{account_name}@{domain_name}"
-
+    ic(account_id)
     destination = Expression(Value.Id(Id.AssetId(asset_id)))
     amount = Expression(Value.U32(quantity))
     mint_amount = Mint(amount, destination)
