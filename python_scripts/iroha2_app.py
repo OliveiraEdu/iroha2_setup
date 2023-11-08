@@ -58,12 +58,14 @@ def mint_asset(cl: Client):
     asset_id = input("Enter asset ID to mint: ")
     quantity = int(input("Enter the quantity to mint: "))  # Added input for quantity
     
-    amount = Expression(Value(expression.u32(quantity)))  # Updated line
-    destination = Expression(Value(Identifiable(asset.DefinitionId.parse(asset_id))))  # Corrected line
+    asset_id = asset.Id(asset_id, account_id)
+    destination = Expression(Value.Id(asset_id))
+    amount = Expression(Value.U32(quantity))
     mint_amount = Mint(amount, destination)
     
     hash = cl.submit_isi(mint_amount)
     wait_for_tx(cl, hash)
+
 
 
 def query_asset(cl: Client):
