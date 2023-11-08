@@ -70,8 +70,6 @@ def mint_asset(cl: Client):
     wait_for_tx(cl, hash)
 )
 
-
-
 def query_asset(cl: Client):
     asset_id = input("Enter asset ID: ")
     query = FindAssetById.id(asset.Id(asset_id))
