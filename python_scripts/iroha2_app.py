@@ -58,7 +58,7 @@ def mint_asset(cl: Client):
     asset_id = input("Enter asset ID to mint: ")
     quantity = int(input("Enter the quantity to mint: "))  # Added input for quantity
     
-    amount = Expression(Value(expression.U32(quantity)))  # Updated line
+    amount = Expression(Value(expression.u32(quantity)))  # Updated line
     destination = Expression(Value(Identifiable(asset.DefinitionId.parse(asset_id))))  # Corrected line
     mint_amount = Mint(amount, destination)
     
