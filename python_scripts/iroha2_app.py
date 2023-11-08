@@ -56,13 +56,15 @@ def register_account(cl: Client):
 def mint_asset(cl: Client):
     account_id = input("Enter account ID: ")
     asset_id = input("Enter asset ID to mint: ")
+    quantity = int(input("Enter the quantity to mint: "))  # Added input for quantity
     
-    amount = Expression(Value(expression.U32(42)))  # Corrected line
+    amount = Expression(Value(expression.U32(quantity)))  # Updated line
     destination = Expression(Value(Identifiable(asset.DefinitionId.parse(asset_id))))  # Corrected line
     mint_amount = Mint(amount, destination)
     
     hash = cl.submit_isi(mint_amount)
     wait_for_tx(cl, hash)
+
 
 def query_asset(cl: Client):
     asset_id = input("Enter asset ID: ")
