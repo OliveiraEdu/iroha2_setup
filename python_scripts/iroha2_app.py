@@ -39,17 +39,20 @@ def register_domain(cl: Client):
 
 def register_asset(cl: Client):
     asset_name = input("Enter asset name: ")
+    domain_name = input("Enter domain name: ")
     value_type = asset.ValueType.Quantity()
     mintable = asset.Mintable.Infinitely()
     asset_definition = asset.Definition(asset_name, value_type, mintable)
-    register = Register.identifiable(asset_definition)
+    register = Register.identifiable(f"{asset_name}#{domain_name}")
     hash = cl.submit_isi(register)
     wait_for_tx(cl, hash)
 
 def register_account(cl: Client):
     account_name = input("Enter account name: ")
+    domain_name = input("Enter domain name: ")
     keypair = KeyPair()
-    acct = account.Account(account_name, signatories=[keypair.public])
+    ic(keypair)
+    acct = account.Account(f"{account_name}@{domain_name}", signatories=[keypair.public])
     register = Register.identifiable(acct)
     hash = cl.submit_isi(register)
     wait_for_tx(cl, hash)
