@@ -43,7 +43,7 @@ def register_asset(cl: Client):
     value_type = asset.ValueType.Quantity()
     mintable = asset.Mintable.Infinitely()
     asset_definition = asset.Definition(f"{asset_name}#{domain_name}", value_type, mintable)
-    register = Register.identifiable(f"{asset_name}#{domain_name}")
+    register = Register.identifiable(asset_definition)
     ic(register)
     hash = cl.submit_isi(register)
     wait_for_tx(cl, hash)
