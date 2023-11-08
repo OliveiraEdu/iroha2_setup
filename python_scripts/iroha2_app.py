@@ -76,7 +76,7 @@ def query_asset(cl: Client):
     domain_name = input("Enter domain name: ")
     asset_name = input("Enter asset name: ")
     #asset_id = (f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}")
-    ic(asset_id)
+    #ic(asset_id)
     query = FindAssetById.id(asset.Id(f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}"))
     result = cl.query(query)
     print(result)
