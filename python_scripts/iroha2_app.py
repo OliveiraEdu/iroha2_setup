@@ -54,17 +54,21 @@ def register_account(cl: Client):
     wait_for_tx(cl, hash)
 
 def mint_asset(cl: Client):
-    account_id = input("Enter account ID: ")
-    asset_id = input("Enter asset ID to mint: ")
+    account_name = input("Enter account name: ")
+    domain_name = input("Enter domain name: ")
+    asset_name = input("Enter asset name: ")
     quantity = int(input("Enter the quantity to mint: "))  # Added input for quantity
-    
-    asset_id = asset.Id(asset_id, account_id)
-    destination = Expression(Value.Id(asset_id))
+
+    asset_id = f"{asset_name}#{domain_name}"
+    account_id = f"{account_name}@{domain_name}"
+
+    destination = Expression(Value.Id(Id.AssetId(asset_id))
     amount = Expression(Value.U32(quantity))
     mint_amount = Mint(amount, destination)
     
     hash = cl.submit_isi(mint_amount)
     wait_for_tx(cl, hash)
+)
 
 
 
