@@ -57,8 +57,8 @@ def mint_asset(cl: Client):
     account_id = input("Enter account ID: ")
     asset_id = input("Enter asset ID to mint: ")
     
-    amount = Expression(Value(U32(42)))
-    destination = Expression(Value(Identifiable(asset.DefinitionId.parse(asset_id)))
+    amount = Expression(Value(expression.U32(42)))  # Corrected line
+    destination = Expression(Value(Identifiable(asset.DefinitionId.parse(asset_id))))  # Corrected line
     mint_amount = Mint(amount, destination)
     
     hash = cl.submit_isi(mint_amount)
