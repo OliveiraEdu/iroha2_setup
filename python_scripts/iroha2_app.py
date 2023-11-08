@@ -51,7 +51,6 @@ def register_account(cl: Client):
     account_name = input("Enter account name: ")
     domain_name = input("Enter domain name: ")
     keypair = KeyPair()
-    ic(keypair)
     acct = account.Account(f"{account_name}@{domain_name}", signatories=[keypair.public])
     register = Register.identifiable(acct)
     hash = cl.submit_isi(register)
