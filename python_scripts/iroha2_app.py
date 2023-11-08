@@ -81,11 +81,6 @@ def query_asset(cl: Client):
     result = cl.query(query)
     print(result)
 
-
-query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
-print(cl.query(query))
-
-
 if __name__ == "__main__":
     cfg = json.loads(open("./config.json").read())
     cl = Client(cfg)
