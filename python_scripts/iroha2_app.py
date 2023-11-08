@@ -75,11 +75,16 @@ def query_asset(cl: Client):
     account_name = input("Enter account name: ")
     domain_name = input("Enter domain name: ")
     asset_name = input("Enter asset name: ")
-    asset_id = (f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}")
+    #asset_id = (f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}")
     ic(asset_id)
-    query = FindAssetById.id(asset.Id(asset_id))
+    query = FindAssetById.id(asset.Id(f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}"))
     result = cl.query(query)
     print(result)
+
+
+query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
+print(cl.query(query))
+
 
 if __name__ == "__main__":
     cfg = json.loads(open("./config.json").read())
