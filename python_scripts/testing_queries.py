@@ -20,5 +20,5 @@ cl = Client(cfg)
 query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
 print(cl.query(query))
 
-query = FindAssetsByAccountId(account.Id("alice", "wonderland"))
+query = FindAssetsByAccountId.id(account.Id("alice@wonderland"))
 print(cl.query(query))
