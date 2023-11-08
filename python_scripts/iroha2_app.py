@@ -60,9 +60,7 @@ def mint_asset(cl: Client):
     asset_name = input("Enter asset name: ")
     quantity = int(input("Enter the quantity to mint: "))  # Added input for quantity
     asset_id = asset.Id(f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}")
-    ic(asset_id)
     account_id = f"{account_name}@{domain_name}"
-    ic(account_id)
     destination = Expression(Value.Id(Id.AssetId(asset_id)))
     amount = Expression(Value.U32(quantity))
     mint_amount = Mint(amount, destination)
@@ -75,8 +73,6 @@ def query_asset(cl: Client):
     account_name = input("Enter account name: ")
     domain_name = input("Enter domain name: ")
     asset_name = input("Enter asset name: ")
-    #asset_id = (f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}")
-    #ic(asset_id)
     query = FindAssetById.id(asset.Id(f"{asset_name}#{domain_name}", f"{account_name}@{domain_name}"))
     result = cl.query(query)
     print(result)
