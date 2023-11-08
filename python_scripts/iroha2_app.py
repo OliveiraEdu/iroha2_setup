@@ -60,7 +60,7 @@ def mint_asset(cl: Client):
     asset_name = input("Enter asset name: ")
     quantity = int(input("Enter the quantity to mint: "))  # Added input for quantity
 
-    asset_id = f"{asset_name}#{domain_name}"
+    asset_id = f"{asset_name}#{domain_name}, {account_id}@{domain_name} "
     ic(asset_id)
     account_id = f"{account_name}@{domain_name}"
     ic(account_id)
