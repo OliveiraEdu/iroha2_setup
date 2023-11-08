@@ -10,7 +10,7 @@ from iroha2.data_model import asset, account, expression, Value, Identifiable, I
 from iroha2.data_model.expression import Expression
 from iroha2.data_model.events import FilterBox, pipeline, Event
 from iroha2.crypto import KeyPair
-from iroha2.data_model.query.asset import FindAssetById
+from iroha2.data_model.query.asset import FindAssetById, FindAssetsByAccountId
 from iroha2.data_model.query import Query
 
 
@@ -20,5 +20,5 @@ cl = Client(cfg)
 query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
 print(cl.query(query))
 
-query = FindAssetsByAccountId.id(account.Id("alice@wonderland"))
+query = FindAssetsByAccountId(account.Id("alice@wonderland"))
 print(cl.query(query))
