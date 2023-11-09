@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import json
-from typing import Self
 
 from iroha2 import Client
 
@@ -21,11 +20,11 @@ cl = Client(cfg)
 # query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
 # print(cl.query(query))
 
-# alice_id = "alice@wonderland"  # This should be a string, not an expression
+alice_id = "alice@wonderland"  # This should be a string, not an expression
 
 # query = FindAssetsByAccountId(alice_id)  # Pass the account ID as a string
 # print(cl.query(query))
 
 
-query = FindAllAssets(Self)
+query = FindAccountById(alice_id)
 print(cl.query(query))
