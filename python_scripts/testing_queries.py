@@ -20,11 +20,11 @@ cl = Client(cfg)
 # query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
 # print(cl.query(query))
 
-alice_id = "alice@wonderland"  # This should be a string, not an expression
+# alice_id = "alice@wonderland"  # This should be a string, not an expression
 
-query = FindAssetsByAccountId(alice_id)  # Pass the account ID as a string
-print(cl.query(query))
-
-
-# query = FindAllAssets()
+# query = FindAssetsByAccountId(alice_id)  # Pass the account ID as a string
 # print(cl.query(query))
+
+
+query = FindAllAssets()
+print(cl.query(query))
