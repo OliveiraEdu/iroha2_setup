@@ -11,6 +11,7 @@ from iroha2.data_model.expression import Expression
 from iroha2.data_model.events import FilterBox, pipeline, Event
 from iroha2.crypto import KeyPair
 from iroha2.data_model.query.asset import FindAssetById, FindAssetsByAccountId, FindAllAssets, FindAccountById
+from iroha2.data_model.query.account import FindAccountById
 from iroha2.data_model.query import Query
 
 
