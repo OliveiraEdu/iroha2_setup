@@ -8,7 +8,7 @@ from iroha2.data_model import asset, account, expression, Value, Identifiable, I
 from iroha2.data_model.expression import Expression
 from iroha2.data_model.events import FilterBox, pipeline, Event
 from iroha2.crypto import KeyPair
-from iroha2.data_model.query.asset import FindAssetById, FindAssetsByAccountId
+from iroha2.data_model.query.asset import FindAssetById
 from iroha2.data_model.query import Query
 
 def wait_for_tx(cl: Client, hash: str):
