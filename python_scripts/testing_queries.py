@@ -11,21 +11,16 @@ from iroha2.data_model.expression import Expression
 from iroha2.data_model.events import FilterBox, pipeline, Event
 from iroha2.crypto import KeyPair
 from iroha2.data_model.query.asset import FindAssetById, FindAssetsByAccountId, FindAllAssets
-from iroha2.data_model.query.account import FindAccountById
 from iroha2.data_model.query import Query
 
 
 cfg = json.loads(open("./config.json").read())
 cl = Client(cfg)
 
-# query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
-# print(cl.query(query))
+query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
+print(cl.query(query))
 
 alice_id = "alice@wonderland"  # This should be a string, not an expression
 
-# query = FindAssetsByAccountId(alice_id)  # Pass the account ID as a string
-# print(cl.query(query))
-
-
-query = FindAccountById(alice_id)
+query = FindAssetsByAccountId.account_id(account.Id("alice@wonderland"))
 print(cl.query(query))
