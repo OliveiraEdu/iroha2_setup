@@ -22,7 +22,9 @@ print(cl.query(query))
 
 alice_id = "alice@wonderland"
 
-query = FindAssetsByAccountId(alice_id)
+alice_account_id = account.AccountId(alice_id)
+query = FindAssetsByAccountId(alice_account_id)
+
 print(cl.query(query))
 
 # query = FindAllAssets()
