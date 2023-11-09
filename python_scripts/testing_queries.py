@@ -22,5 +22,5 @@ print(cl.query(query))
 
 alice_id = "alice@wonderland"
 
-query = FindAssetsByAccountId(alice_id)
+query = FindAssetsByAccountId(account.id(alice_id))
 print(cl.query(query))
