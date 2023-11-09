@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+from typing import Self
 
 from iroha2 import Client
 
@@ -26,5 +27,5 @@ cl = Client(cfg)
 # print(cl.query(query))
 
 
-query = FindAllAssets()
+query = FindAllAssets(Self)
 print(cl.query(query))
