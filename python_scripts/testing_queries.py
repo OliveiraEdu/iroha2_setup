@@ -19,3 +19,17 @@ cl = Client(cfg)
 
 query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
 print(cl.query(query))
+
+alice_id = "alice@wonderland"
+
+query = FindAssetsByAccountId(FindAssetsByAccountId(alice_id))
+print(cl.query(query))
+
+
+
+# let alice_id =
+#     AccountId::from_str("alice@wonderland")?;
+# let query = QueryBox::FindAssetsByAccountId(
+#     FindAssetsByAccountId::new(alice_id)
+#   );
+
