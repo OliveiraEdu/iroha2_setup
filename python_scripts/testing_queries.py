@@ -22,8 +22,8 @@ print(cl.query(query))
 
 alice_id = "alice@wonderland"  # This should be a string, not an expression
 
-# query = FindAssetsByAccountId("alice@wonderland")
+query = FindAssetsByAccountId(alice_id)
 
-query = FindAllAssets(FindAllAssets)
+# query = FindAllAssets(FindAllAssets)
 
 print(cl.query(query))
