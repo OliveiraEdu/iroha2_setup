@@ -22,7 +22,10 @@ cfg = json.loads(open("./config.json").read())
 cl = Client(cfg)
 
 query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
-print(cl.query(query))
+ic(query)
+# print(cl.query(query))
+ic(cl.query(query))
+
 
 alice_id = "alice@wonderland"
 asset_name = "pint#wonderland"
