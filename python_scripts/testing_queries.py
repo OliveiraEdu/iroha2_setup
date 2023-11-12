@@ -24,7 +24,7 @@ print(cl.query(query))
 alice_id = "alice@wonderland"
 asset_name = "pint"
 
-query = FindAssetsByName(asset.name(asset_name))
+query = FindAssetsByName(asset.Name(asset_name))
 print(cl.query(query))
 
 
