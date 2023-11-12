@@ -24,7 +24,7 @@ print(cl.query(query))
 alice_id = "alice@wonderland"
 asset_name = "pint"
 
-query = FindAssetsByDomainId(domain.Id("unika"))
+query = FindAssetsByDomainId.id(domain.Id("unika"))
 print(cl.query(query))
 
 
