@@ -22,9 +22,9 @@ query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
 print(cl.query(query))
 
 alice_id = "alice@wonderland"
-asset_name = "pint"
+asset_name = "pint#wonderland"
 
-query = FindAssetsByAccountId.account_id(account.Id("alice@wonderland"))
+query = FindAssetsByAccountId(alice_id, asset_name)
 print(cl.query(query))
 
 
