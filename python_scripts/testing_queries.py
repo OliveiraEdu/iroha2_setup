@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from icecream import ic
+
 import json
 from os import name
 
@@ -25,6 +28,7 @@ alice_id = "alice@wonderland"
 asset_name = "pint#wonderland"
 
 query = FindAssetsByAccountId(alice_id, asset_name)
+ic(query)
 print(cl.query(query))
 
 
