@@ -32,7 +32,7 @@ asset_name = "pint#wonderland"
 
 query = FindAssetsByAccountId((alice_id))
 ic(query)
-# print(cl.query(query))
+print(cl.query(query))
 
 
 
