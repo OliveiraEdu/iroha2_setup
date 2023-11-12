@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+from os import name
 
 from iroha2 import Client
 
@@ -22,7 +23,7 @@ print(cl.query(query))
 
 alice_id = "alice@wonderland"
 
-query = FindAssetsByName("growler")
+query = FindAssetsByName(name("growler"))
 print(cl.query(query))
 
 
