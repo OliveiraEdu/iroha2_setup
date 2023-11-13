@@ -32,7 +32,7 @@ ic(query)
 ic(cl.query(query))
 
 
-alice_id = AccountId.from_str("alice@wonderland")
+alice_id = Account.from_str("alice@wonderland")
 
 query = FindAssetsByAccountId((alice_id))
 ic(query)
