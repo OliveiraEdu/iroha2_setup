@@ -34,7 +34,7 @@ ic(cl.query(query))
 
 alice_id = AccountId.from_str("alice@wonderland")
 
-query = FindAssetsByAccountId(FindAssetsByAccountId(alice_id))
+query = FindAssetsByAccountId((alice_id))
 ic(query)
 # print(cl.query(query))
 
