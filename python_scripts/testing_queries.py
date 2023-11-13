@@ -32,7 +32,7 @@ ic(query)
 ic(cl.query(query))
 
 
-query = FindAssetsByAccountId(account.Id(alice_id))
+query = FindAssetsByAccountId(account(alice_id))
 ic(query)
 # print(cl.query(query))
 
