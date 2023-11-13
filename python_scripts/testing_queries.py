@@ -21,14 +21,16 @@ from iroha2.data_model.query import Query
 cfg = json.loads(open("./config.json").read())
 cl = Client(cfg)
 
-query = FindAssetById.id(asset.Id("rose#wonderland", "alice@wonderland"))
+
+alice_id = "alice@wonderland"
+asset_name = "rose#wonderland"
+
+
+query = FindAssetById.id(asset.Id(asset_name, alice_id))
 ic(query)
 # print(cl.query(query))
 ic(cl.query(query))
 
-
-alice_id = "alice@wonderland"
-asset_name = "pint#wonderland"
 
 query = FindAssetsByAccountId((alice_id))
 ic(query)
