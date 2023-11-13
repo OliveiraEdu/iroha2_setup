@@ -32,9 +32,13 @@ ic(query)
 ic(cl.query(query))
 
 
-query = FindAssetsByAccountId((alice_id))
+alice_id = AccountId.from_str("alice@wonderland")
+
+query = FindAssetsByAccountId(FindAssetsByAccountId(alice_id))
 ic(query)
 # print(cl.query(query))
+
+
 
 
 
@@ -43,4 +47,5 @@ ic(query)
 # let query = QueryBox::FindAssetsByAccountId(
 #     FindAssetsByAccountId::new(alice_id)
 #   );
+
 
