@@ -41,10 +41,10 @@ ic(query)
 
 
 
-let alice_id =
-    AccountId::from_str("alice@wonderland")?;
-let query = QueryBox::FindAssetsByAccountId(
-    FindAssetsByAccountId::new(alice_id)
-  );
+# let alice_id =
+#     AccountId::from_str("alice@wonderland")?;
+# let query = QueryBox::FindAssetsByAccountId(
+#     FindAssetsByAccountId::new(alice_id)
+#   );
 
 
