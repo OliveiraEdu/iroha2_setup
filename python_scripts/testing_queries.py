@@ -26,14 +26,14 @@ alice_id = "alice@wonderland"
 asset_name = "rose#wonderland"
 
 
-query = FindAssetById.id(asset.Id(asset_name, alice_id))
+query = FindAssetById.id((asset_name, alice_id))
 ic(query)
 # print(cl.query(query))
 ic(cl.query(query))
 
 
 
-query = FindAssetsByAccountId.AccountId((alice_id))
+query = FindAssetsByAccountId((alice_id))
 ic(query)
 # print(cl.query(query))
 
@@ -41,10 +41,10 @@ ic(query)
 
 
 
-# let alice_id =
-#     AccountId::from_str("alice@wonderland")?;
-# let query = QueryBox::FindAssetsByAccountId(
-#     FindAssetsByAccountId::new(alice_id)
-#   );
+let alice_id =
+    AccountId::from_str("alice@wonderland")?;
+let query = QueryBox::FindAssetsByAccountId(
+    FindAssetsByAccountId::new(alice_id)
+  );
 
 
