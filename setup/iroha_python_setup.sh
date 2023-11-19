@@ -20,4 +20,4 @@ pip install maturin
 maturin build
 pip install ./target/wheels/iroha_python-*.whl
 cp -vfr ~/Git/iroha/configs/client_cli/config.json example/config.json
-pip install jupyter
+pip install icecream
