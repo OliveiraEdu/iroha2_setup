@@ -18,11 +18,14 @@ def wait_for_tx(cl: Client, hash: str):
             status_kind=None,
             hash=None,
         ))
+    ic(filter)
 
     listener = cl.listen(filter)
 
+    ic(listener)
+    
     for event in listener:
-        ic("event: ", event)
+        ic(event)
         if isinstance(event, Event.Pipeline) and event.hash == hash:
             if isinstance(event.status, pipeline.Status.Committed):
                 return
