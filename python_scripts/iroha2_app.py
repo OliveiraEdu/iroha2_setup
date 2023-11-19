@@ -22,6 +22,7 @@ def wait_for_tx(cl: Client, hash: str):
     listener = cl.listen(filter)
 
     for event in listener:
+        ci(event)
         if isinstance(event, Event.Pipeline) and event.hash == hash:
             if isinstance(event.status, pipeline.Status.Committed):
                 return
