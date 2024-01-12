@@ -129,9 +129,9 @@ if __name__ == "__main__":
         elif choice == "5":
             mint_asset(cl)
         elif choice == "6":
-            query_asset_by_definition(cl)
-        elif choice == "7":
             query_asset(cl)
+        elif choice == "7":
+            query_asset_by_definition(cl)
         elif choice == "8":
             break
         else:
