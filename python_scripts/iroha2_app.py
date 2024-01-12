@@ -46,6 +46,18 @@ def register_asset(cl: Client):
     domain_name = input("Enter domain name: ")
     value_type = asset.ValueType.Quantity()
     mintable = asset.Mintable.Infinitely()
+    metadata={"a": Value.U32(10)}
+    asset_definition = asset.Definition(f"{asset_name}#{domain_name}", value_type, mintable)
+    register = Register.identifiable(asset_definition)
+    hash = cl.submit_isi(register)
+    wait_for_tx(cl, hash)
+
+def register_asset_metadata(cl: Client):
+    asset_name = input("Enter asset name: ")
+    domain_name = input("Enter domain name: ")
+    value_type = asset.ValueType.Store()
+    mintable = asset.Mintable.Infinitely()
+    metadata={"id": Value.Metadata("new_id")}
     asset_definition = asset.Definition(f"{asset_name}#{domain_name}", value_type, mintable)
     register = Register.identifiable(asset_definition)
     hash = cl.submit_isi(register)
@@ -90,10 +102,11 @@ if __name__ == "__main__":
     while True:
         print("1. Register Domain")
         print("2. Register Asset")
-        print("3. Register Account")
-        print("4. Mint Asset")
-        print("5. Query Asset")
-        print("6. Quit")
+        print("3. Register Asset Metadata")
+        print("4. Register Account")
+        print("5. Mint Asset")
+        print("6. Query Asset")
+        print("7. Quit")
 
         choice = input("Select an option: ")
 
@@ -101,13 +114,15 @@ if __name__ == "__main__":
             register_domain(cl)
         elif choice == "2":
             register_asset(cl)
-        elif choice == "3":
-            register_account(cl)
+        elif choice == "2":
+            register_asset_metadata(cl)            
         elif choice == "4":
-            mint_asset(cl)
+            register_account(cl)
         elif choice == "5":
-            query_asset(cl)
+            mint_asset(cl)
         elif choice == "6":
+            query_asset(cl)
+        elif choice == "7":
             break
         else:
             print("Invalid choice. Please try again.")
