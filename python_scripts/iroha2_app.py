@@ -98,7 +98,7 @@ def query_asset(cl: Client):
 def query_asset_by_definition(cl: Client):
     domain_name = input("Enter domain name: ")
     asset_name = input("Enter asset name: ")
-    query = FindAssetDefinitionById.id(asset.Id(f"{asset_name}#{domain_name}"))
+    query = FindAssetDefinitionById.Id(asset.Id(f"{asset_name}#{domain_name}"))
     result = cl.query(query)
     print(result)
 
