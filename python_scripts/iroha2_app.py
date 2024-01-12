@@ -95,6 +95,13 @@ def query_asset(cl: Client):
     result = cl.query(query)
     print(result)
 
+def query_asset_by_definition(cl: Client):
+    domain_name = input("Enter domain name: ")
+    asset_name = input("Enter asset name: ")
+    query = FindAssetDefinitionById.id(asset.Id(f"{asset_name}#{domain_name}"))
+    result = cl.query(query)
+    print(result)
+
 if __name__ == "__main__":
     cfg = json.loads(open("./config.json").read())
     cl = Client(cfg)
@@ -105,8 +112,9 @@ if __name__ == "__main__":
         print("3. Register Asset Metadata")
         print("4. Register Account")
         print("5. Mint Asset")
-        print("6. Query Asset")
-        print("7. Quit")
+        print("6. Query Asset by Account Id")
+        print("7. Query Asset by Definition")
+        print("8. Quit")
 
         choice = input("Select an option: ")
 
@@ -123,6 +131,8 @@ if __name__ == "__main__":
         elif choice == "6":
             query_asset(cl)
         elif choice == "7":
+            query_asset(cl)
+        elif choice == "8":
             break
         else:
             print("Invalid choice. Please try again.")
