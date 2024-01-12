@@ -122,7 +122,7 @@ if __name__ == "__main__":
             register_domain(cl)
         elif choice == "2":
             register_asset(cl)
-        elif choice == "2":
+        elif choice == "3":
             register_asset_metadata(cl)            
         elif choice == "4":
             register_account(cl)
