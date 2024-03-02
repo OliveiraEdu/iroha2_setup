@@ -16,6 +16,7 @@ rustup component add rust-src --toolchain nightly-2023-06-25
 cd ~/Git/iroha
 cargo build -p iroha_client_cli --release
 mkdir -p test_docker
+cd ~/Git/iroha
 cp ./configs/client/config.json test_docker/
 cp ./target/release/iroha_client_cli test_docker/
 cd ~/Git/iroha/test_docker
