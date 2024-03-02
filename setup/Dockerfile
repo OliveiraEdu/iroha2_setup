@@ -1,7 +1,9 @@
 
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y libssl-dev curl build-essential pkg-config iputils-ping nano git pip patchelf
+RUN apt-get update
+
+RUN apt-get install -y libssl-dev curl build-essential pkg-config iputils-ping nano git pip patchelf
 
 # Create Git directory and clone Iroha repository
 RUN mkdir -p /root/Git 
