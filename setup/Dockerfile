@@ -26,8 +26,8 @@ RUN cargo build -p iroha_client_cli --release
 RUN mkdir -p test_docker
 
 # Copy config and built client to test directory
-COPY configs/client/config.json test_docker/
-COPY target/release/iroha_client_cli test_docker/
+COPY /root/Git/iroha/configs/client/config.json test_docker/
+COPY /root/Git/iroha/target/release/iroha_client_cli test_docker/
 
 # Set working directory for further commands (optional)
 WORKDIR /root/Git/iroha/test_docker
