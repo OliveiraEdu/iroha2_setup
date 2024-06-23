@@ -7,11 +7,11 @@ rule_files:
   # - "second.rules"
 
 scrape_configs:
-  - job_name: Iroha2 Peers
+  - job_name: Iroha
     static_configs:
-      - targets: ['10.0.0.100:8180','10.0.0.100:8181','10.0.0.100:8182','10.0.0.100:8183']
-  - job_name: 'IPFS'
-    metrics_path: '/debug/metrics/prometheus'
-    static_configs:
+      - targets: ['127.0.0.1:7001']
+  #- job_name: 'IPFS'
+   # metrics_path: '/debug/metrics/prometheus'
+   # static_configs:
 
-      - targets: ['10.0.0.100:5001']
+    #  - targets: ['10.0.0.100:5001']
